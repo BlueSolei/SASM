@@ -1,0 +1,18 @@
+language: cpp
+os: osx
+addons:
+    hombrew:
+        packages:
+            - qt
+branches:
+    only:
+        - master
+deploy:
+  provider: releases
+  api_key:
+    secure: 
+  file: "sasm.app/Contents/MacOS/sasm"
+  skip_cleanup: true
+  on:
+    tags: true
+
