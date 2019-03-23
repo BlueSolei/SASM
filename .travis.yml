@@ -1,6 +1,5 @@
 --- 
 before_install: 
-  - "echo Hello Shaul os = $TRAVIS_OS_NAME"
   - "if [[ \"$TRAVIS_OS_NAME\" == \"osx\" ]]; then brew install qt ; fi"
 deploy: 
   api_key: 
@@ -10,7 +9,7 @@ deploy:
   skip_cleanup: true
   true: 
     repo: BlueSolei/SASM
-    tags: true
+#    tags: true
 language: cpp
 os: osx
 script: 
