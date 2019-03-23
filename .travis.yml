@@ -1,12 +1,8 @@
 language: cpp
 os: osx
-addons:
-  hombrew:
-    packages:
-    - qt
-    update: true
 before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install qt ; fi
+    - echo Hello Shaul os = $TRAVIS_OS_NAME
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install qt ; fi
 script:
     - export PATH="/usr/local/opt/qt/bin:$PATH"
     - qmake 
