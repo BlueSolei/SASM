@@ -51,7 +51,11 @@ QString GccBasedAssembler::getLinkerOptions()
     if (isx86())
         options = "$PROGRAM.OBJ$ $MACRO.OBJ$ -g -o $PROGRAM$ -m32";
     else
+    #ifdef Q_OS_OSX
+        options = "$PROGRAM.OBJ$ -g -o $PROGRAM$ -m64";
+    #else
         options = "$PROGRAM.OBJ$ $MACRO.OBJ$ -g -o $PROGRAM$ -m64";
+    #endif
     if (m_isPieEnabled)
         options += " -fno-pie -no-pie";
     return options;

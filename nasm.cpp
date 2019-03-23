@@ -201,6 +201,11 @@ QString NASM::getAssemblerOptions()
             options = "-g -f win32 $SOURCE$ -l $LSTOUTPUT$ -o $PROGRAM.OBJ$";
         else
             options = "-g -f win64 $SOURCE$ -l $LSTOUTPUT$ -o $PROGRAM.OBJ$";
+    #elseif defined(Q_OS_OSX)
+        if (isx86())
+            options = "-g -f macho32 $SOURCE$ -l $LSTOUTPUT$ -o $PROGRAM.OBJ$ --prefix _";
+        else
+            options = "-g -f macho64 $SOURCE$ -l $LSTOUTPUT$ -o $PROGRAM.OBJ$ --prefix _";
     #else
         if (isx86())
             options = "-g -f elf32 $SOURCE$ -l $LSTOUTPUT$ -o $PROGRAM.OBJ$";
