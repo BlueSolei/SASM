@@ -4,7 +4,7 @@ addons:
   hombrew:
     packages:
     - qt
-scripts:
+script:
     - export PATH="/usr/local/opt/qt/bin:$PATH"
     - qmake 
     - make
