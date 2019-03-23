@@ -1,18 +1,19 @@
-language: cpp
-os: osx
-before_install:
-    - echo Hello Shaul os = $TRAVIS_OS_NAME
-    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install qt ; fi
-script:
-    - export PATH="/usr/local/opt/qt/bin:$PATH"
-    - qmake 
-    - make
-deploy:
-  provider: releases
-  api_key:
+--- 
+before_install: 
+  - "echo Hello Shaul os = $TRAVIS_OS_NAME"
+  - "if [[ \"$TRAVIS_OS_NAME\" == \"osx\" ]]; then brew install qt ; fi"
+deploy: 
+  api_key: 
     secure: e8hPz/RBDwz3dM8ebzepGfyHvHqQGtu2COrckMWw7D0I6Dn9dlY5Fge/a/h/q2b9rCYhdcnGPw99MHOT0Awy1yhBEARN8I4sXIoJPJ2+mcjbpiqbR+enjAi/pLcCcJ47n0cIm8Tcf0n4ChaTQH3soi62z9wanwnx+uRkIlPBVl0Uw4vhPwUKSi9FVVMDtdXxmXVfHHMXIO4qTooXPurNASXkm5gUbPUsbVBvIJ6+OW3wX1Q1eaQ9+rWfhD1guNO0otvKr2VHKU3R2Ak9U8YZVKlBfYvjUHL+xMHzfDyebArY8lFIjDmiieh84XcnSTHt31KfD4XYiXwjEiQ3IKfSpAuQtO4Gi49CvZj5pZaEb5XZUD+Uc4WAF5eui+TSK091o4KkhWwIY7eGShMXVql0qLFyF+Lurv54WVco0AFEtptjPB3uvV4aWeLEl43t9GkIj3IqUIbXOipSGohOqQmFTKcC5a4fycVv0din5r10+o7Z3B6DtM2nWNlalCXui8gVj2d3mJa4+Thedl0srjyxIuGjVD7GHn6QdadhXaUOvoGcGUyjZC0F6wqz4p3OWziMFi/XMRq2IacVOQgP9EcUx9S0WB55xPZ5Ie1atDmrznh/SSEirB9tMOD1a5+RsVW2ZhVtAHXXhoEhltrI3mT6gvYCGUFyZfV0BAOmf4uRYUw=
   file: sasm.app/Contents/MacOS/sasm
+  provider: releases
   skip_cleanup: true
-  on:
+  true: 
     repo: BlueSolei/SASM
     tags: true
+language: cpp
+os: osx
+script: 
+  - "export PATH=\"/usr/local/opt/qt/bin:$PATH\""
+  - qmake
+  - make
